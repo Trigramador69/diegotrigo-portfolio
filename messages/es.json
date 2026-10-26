@@ -1,0 +1,156 @@
+{
+  "meta": {
+    "title": "Diego Trigo Gutierrez · AI Engineer · Full Stack Developer",
+    "description": "Construyo productos de IA que llegan a producción: LLMs, automatización y SaaS multitenant."
+  },
+  "nav": {
+    "label": "Navegación principal",
+    "home": "Inicio",
+    "about": "Sobre mí",
+    "experience": "Experiencia",
+    "projects": "Proyectos",
+    "stack": "Stack",
+    "certifications": "Logros",
+    "contact": "Contacto",
+    "skip": "Saltar al contenido",
+    "search": "Buscar o ir a…"
+  },
+  "hero": {
+    "available": "Disponible para remoto",
+    "viewProjects": "Ver proyectos",
+    "contact": "Contactar",
+    "downloadCv": "Descargar CV",
+    "cvLanguage": "CV en {lang}"
+  },
+  "about": {
+    "eyebrow": "01 · Sobre mí",
+    "title": "IA aplicada, de punta a punta",
+    "photoAlt": "Foto de Diego Trigo Gutierrez",
+    "education": "Educación",
+    "languages": "Idiomas"
+  },
+  "experience": {
+    "eyebrow": "02 · Experiencia",
+    "title": "Dónde he construido",
+    "current": "Actual"
+  },
+  "projects": {
+    "eyebrow": "03 · Proyectos",
+    "title": "Proyectos destacados",
+    "caseStudy": "Ver caso de estudio",
+    "moreTitle": "Más en GitHub",
+    "moreText": "Experimentos, hackathons y código abierto, incluido este portafolio.",
+    "demoTitle": "Pruébalo: generador de contenido",
+    "demoText": "Una demo simulada del módulo de IA que construí. Elige ICP, tono y formato."
+  },
+  "stack": {
+    "eyebrow": "04 · Stack",
+    "title": "Con qué trabajo"
+  },
+  "certifications": {
+    "eyebrow": "05 · Logros",
+    "title": "Certificaciones y logros",
+    "verify": "Ver on-chain",
+    "view": "Ver certificado",
+    "pending": "Enlace de verificación pronto"
+  },
+  "contact": {
+    "eyebrow": "06 · Contacto",
+    "title": "Hablemos",
+    "text": "¿Tienes un producto de IA en mente o un equipo que necesita a alguien que lo lleve a producción? Escríbeme.",
+    "copyEmail": "Copiar email",
+    "copied": "Copiado",
+    "whatsapp": "WhatsApp",
+    "whatsappFab": "Escribir por WhatsApp",
+    "whatsappMessage": "Hola Diego, vi tu portafolio y me gustaría conversar.",
+    "cv": "CV ({lang})"
+  },
+  "footer": {
+    "builtWith": "Built with Next.js · Motion · Tailwind",
+    "source": "Código fuente"
+  },
+  "theme": {
+    "toggle": "Cambiar tema",
+    "dark": "Tema oscuro",
+    "light": "Tema claro"
+  },
+  "language": {
+    "switch": "Cambiar idioma",
+    "es": "español",
+    "en": "inglés",
+    "switchTo": "Switch to English"
+  },
+  "command": {
+    "title": "Paleta de comandos",
+    "placeholder": "Escribe un comando o busca…",
+    "empty": "Sin resultados.",
+    "navigate": "Ir a",
+    "actions": "Acciones",
+    "links": "Enlaces",
+    "downloadCv": "Descargar CV ({lang})",
+    "copyEmail": "Copiar email",
+    "emailCopied": "Email copiado",
+    "caseStudy": "Caso de estudio: {title}"
+  },
+  "caseStudy": {
+    "back": "Volver a proyectos",
+    "role": "Rol",
+    "period": "Periodo",
+    "stack": "Stack",
+    "links": "Enlaces",
+    "confidential": "Proyecto confidencial: sin nombres internos, clientes, capturas ni métricas. La demo y el diagrama usan datos ficticios.",
+    "next": "Siguiente caso"
+  },
+  "demo": {
+    "label": "Demo simulada · datos ficticios · sin llamadas a APIs",
+    "business": "Negocio: Kora, software de punto de venta y pedidos",
+    "icp": "ICP",
+    "tone": "Tono",
+    "format": "Formato",
+    "generate": "Generar",
+    "regenerate": "Generar de nuevo",
+    "generating": "Generando…",
+    "steps": {
+      "context": "Leyendo contexto del negocio",
+      "rules": "Aplicando reglas de la plataforma",
+      "llm": "Redactando con el LLM",
+      "review": "Revisando formato y tono"
+    },
+    "ready": "Listo para revisión",
+    "schedule": "Programado · martes 09:00",
+    "slide": "Diapositiva {n} de {total}",
+    "emptyState": "Elige opciones y presiona Generar.",
+    "icps": {
+      "retail": "Retail",
+      "restaurants": "Restaurantes",
+      "ecommerce": "E-commerce"
+    },
+    "tones": {
+      "professional": "Profesional",
+      "friendly": "Cercano",
+      "bold": "Directo"
+    },
+    "formats": {
+      "post": "Post",
+      "carousel": "Carrusel"
+    }
+  },
+  "diagram": {
+    "title": "Flujo del módulo de contenido con IA",
+    "context": "Contexto",
+    "contextSub": "negocio + ICP",
+    "rules": "Reglas",
+    "rulesSub": "plataforma + marca",
+    "llm": "LLM",
+    "llmSub": "texto + imagen",
+    "review": "Revisión",
+    "reviewSub": "humano en el loop",
+    "schedule": "Programación",
+    "scheduleSub": "uno o por lotes"
+  },
+  "notFound": {
+    "title": "Página no encontrada",
+    "text": "Esta ruta no existe o se movió.",
+    "back": "Volver al inicio"
+  }
+}

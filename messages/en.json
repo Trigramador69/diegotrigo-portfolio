@@ -1,0 +1,156 @@
+{
+  "meta": {
+    "title": "Diego Trigo Gutierrez · AI Engineer · Full Stack Developer",
+    "description": "I build AI products that make it to production: LLMs, automation and multitenant SaaS."
+  },
+  "nav": {
+    "label": "Main navigation",
+    "home": "Home",
+    "about": "About",
+    "experience": "Experience",
+    "projects": "Projects",
+    "stack": "Stack",
+    "certifications": "Achievements",
+    "contact": "Contact",
+    "skip": "Skip to content",
+    "search": "Search or jump to…"
+  },
+  "hero": {
+    "available": "Available for remote work",
+    "viewProjects": "View projects",
+    "contact": "Contact me",
+    "downloadCv": "Download CV",
+    "cvLanguage": "CV in {lang}"
+  },
+  "about": {
+    "eyebrow": "01 · About",
+    "title": "Applied AI, end to end",
+    "photoAlt": "Photo of Diego Trigo Gutierrez",
+    "education": "Education",
+    "languages": "Languages"
+  },
+  "experience": {
+    "eyebrow": "02 · Experience",
+    "title": "Where I've built",
+    "current": "Current"
+  },
+  "projects": {
+    "eyebrow": "03 · Projects",
+    "title": "Featured projects",
+    "caseStudy": "Read case study",
+    "moreTitle": "More on GitHub",
+    "moreText": "Experiments, hackathons and open source, including this portfolio.",
+    "demoTitle": "Try it: content generator",
+    "demoText": "A simulated demo of the AI module I built. Pick an ICP, tone and format."
+  },
+  "stack": {
+    "eyebrow": "04 · Stack",
+    "title": "What I work with"
+  },
+  "certifications": {
+    "eyebrow": "05 · Achievements",
+    "title": "Certifications & achievements",
+    "verify": "View on-chain",
+    "view": "View certificate",
+    "pending": "Verification link coming soon"
+  },
+  "contact": {
+    "eyebrow": "06 · Contact",
+    "title": "Let's talk",
+    "text": "Have an AI product in mind, or a team that needs someone to take it to production? Get in touch.",
+    "copyEmail": "Copy email",
+    "copied": "Copied",
+    "whatsapp": "WhatsApp",
+    "whatsappFab": "Message me on WhatsApp",
+    "whatsappMessage": "Hi Diego, I saw your portfolio and would like to talk.",
+    "cv": "CV ({lang})"
+  },
+  "footer": {
+    "builtWith": "Built with Next.js · Motion · Tailwind",
+    "source": "Source code"
+  },
+  "theme": {
+    "toggle": "Toggle theme",
+    "dark": "Dark theme",
+    "light": "Light theme"
+  },
+  "language": {
+    "switch": "Change language",
+    "es": "Spanish",
+    "en": "English",
+    "switchTo": "Cambiar a español"
+  },
+  "command": {
+    "title": "Command palette",
+    "placeholder": "Type a command or search…",
+    "empty": "No results.",
+    "navigate": "Go to",
+    "actions": "Actions",
+    "links": "Links",
+    "downloadCv": "Download CV ({lang})",
+    "copyEmail": "Copy email",
+    "emailCopied": "Email copied",
+    "caseStudy": "Case study: {title}"
+  },
+  "caseStudy": {
+    "back": "Back to projects",
+    "role": "Role",
+    "period": "Period",
+    "stack": "Stack",
+    "links": "Links",
+    "confidential": "Confidential project: no internal names, clients, screenshots or metrics. The demo and diagram use fictional data.",
+    "next": "Next case study"
+  },
+  "demo": {
+    "label": "Simulated demo · fictional data · no API calls",
+    "business": "Business: Kora, point-of-sale and ordering software",
+    "icp": "ICP",
+    "tone": "Tone",
+    "format": "Format",
+    "generate": "Generate",
+    "regenerate": "Generate again",
+    "generating": "Generating…",
+    "steps": {
+      "context": "Reading business context",
+      "rules": "Applying platform rules",
+      "llm": "Drafting with the LLM",
+      "review": "Checking format and tone"
+    },
+    "ready": "Ready for review",
+    "schedule": "Scheduled · Tuesday 09:00",
+    "slide": "Slide {n} of {total}",
+    "emptyState": "Pick your options and press Generate.",
+    "icps": {
+      "retail": "Retail",
+      "restaurants": "Restaurants",
+      "ecommerce": "E-commerce"
+    },
+    "tones": {
+      "professional": "Professional",
+      "friendly": "Friendly",
+      "bold": "Bold"
+    },
+    "formats": {
+      "post": "Post",
+      "carousel": "Carousel"
+    }
+  },
+  "diagram": {
+    "title": "AI content module flow",
+    "context": "Context",
+    "contextSub": "business + ICP",
+    "rules": "Rules",
+    "rulesSub": "platform + brand",
+    "llm": "LLM",
+    "llmSub": "text + image",
+    "review": "Review",
+    "reviewSub": "human in the loop",
+    "schedule": "Scheduling",
+    "scheduleSub": "single or batch"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "text": "This route doesn't exist or has moved.",
+    "back": "Back to home"
+  }
+}

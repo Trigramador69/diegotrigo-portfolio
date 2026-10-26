@@ -1,0 +1,204 @@
+@import "tailwindcss";
+@import "lenis/dist/lenis.css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ---------- Design tokens ---------- */
+
+:root {
+  --background: #fafaf9;
+  --foreground: #0a0a0b;
+  --muted: #57534e;
+  --subtle: #78716c;
+  --surface: rgb(0 0 0 / 0.025);
+  --surface-strong: rgb(0 0 0 / 0.05);
+  --border: rgb(0 0 0 / 0.08);
+  --border-strong: rgb(0 0 0 / 0.16);
+  --dot: rgb(0 0 0 / 0.1);
+  /* Accent as a fill (text on it uses --accent-foreground) */
+  --accent: #b4f461;
+  --accent-foreground: #0a0a0b;
+  /* Accent as text/strokes: darker in light mode to pass AA */
+  --accent-ink: #3f6212;
+  --glow: rgb(101 163 13 / 0.35);
+}
+
+.dark {
+  --background: #0a0a0b;
+  --foreground: #f4f4f5;
+  --muted: #a1a1aa;
+  --subtle: #8b8b93;
+  --surface: rgb(255 255 255 / 0.025);
+  --surface-strong: rgb(255 255 255 / 0.05);
+  --border: rgb(255 255 255 / 0.08);
+  --border-strong: rgb(255 255 255 / 0.16);
+  --dot: rgb(255 255 255 / 0.09);
+  --accent-ink: #b4f461;
+  --glow: rgb(180 244 97 / 0.4);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-subtle: var(--subtle);
+  --color-surface: var(--surface);
+  --color-surface-strong: var(--surface-strong);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent-ink: var(--accent-ink);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@theme {
+  --container-prose: 45rem;
+  --container-wide: 68rem;
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ---------- Base ---------- */
+
+@layer base {
+  html {
+    color-scheme: light;
+    scroll-padding-top: 5rem;
+  }
+
+  html.dark {
+    color-scheme: dark;
+  }
+
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: var(--accent-foreground);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent-ink);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html:not(.lenis) {
+      scroll-behavior: smooth;
+    }
+  }
+}
+
+@layer components {
+  /* ---------- Dot grid background ---------- */
+
+  .dot-grid {
+    background-image: radial-gradient(var(--dot) 1px, transparent 1px);
+    background-size: 22px 22px;
+    mask-image: radial-gradient(
+      ellipse 80% 60% at 50% 0%,
+      #000 40%,
+      transparent 100%
+    );
+  }
+
+  /* Accent-colored dots revealed only around the cursor */
+  .dot-grid-glow {
+    display: none;
+    background-image: radial-gradient(var(--glow) 1.2px, transparent 1.2px);
+    background-size: 22px 22px;
+    mask-image: radial-gradient(
+      180px circle at var(--mx, -999px) var(--my, -999px),
+      #000 0%,
+      transparent 100%
+    );
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .dot-grid-glow {
+      display: block;
+    }
+  }
+
+  /* ---------- Spotlight card ---------- */
+
+  .spotlight {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .spotlight::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: radial-gradient(
+      360px circle at var(--sx, 50%) var(--sy, 50%),
+      var(--glow),
+      transparent 60%
+    );
+    mask:
+      linear-gradient(#000 0 0) content-box exclude,
+      linear-gradient(#000 0 0);
+    opacity: 0;
+    transition: opacity 300ms ease;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .spotlight:hover::before {
+      opacity: 1;
+    }
+  }
+}
+
+/* ---------- Typewriter caret ---------- */
+
+.caret::after {
+  content: "";
+  display: inline-block;
+  width: 0.55em;
+  height: 1.1em;
+  margin-left: 2px;
+  vertical-align: -0.2em;
+  background: var(--accent-ink);
+  animation: caret-blink 1s steps(1) infinite;
+}
+
+@keyframes caret-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .caret::after {
+    animation: none;
+  }
+}
+
+/* ---------- cmdk ---------- */
+
+[cmdk-item][data-selected="true"] {
+  background: var(--surface-strong);
+  color: var(--foreground);
+}
+
+[cmdk-group-heading] {
+  padding: 0.5rem 0.75rem 0.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--subtle);
+}

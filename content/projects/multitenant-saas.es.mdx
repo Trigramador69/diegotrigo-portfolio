@@ -1,0 +1,45 @@
+## Problema
+
+Los negocios que usan la plataforma necesitaban operar todo desde un solo lugar: ventas, órdenes, suscripciones, clientes, entregas y finanzas. Y además mantener una presencia constante en LinkedIn, algo que casi nunca tienen tiempo de hacer bien.
+
+Escribir contenido relevante exige conocer el negocio, a quién le vende y qué puede o no decir. Un prompt genérico a un LLM no alcanza: el resultado suena igual para todos.
+
+## Mi rol
+
+Trabajo como **Full Stack AI Engineer** sobre la plataforma completa, y diseñé y construí **desde cero el módulo de contenido con IA**: modelo de datos, orquestación de los modelos, interfaz y programación de publicaciones.
+
+## Solución
+
+La plataforma es **multitenant** y tiene más de 15 módulos: punto de venta, órdenes, suscripciones, gift cards, CRM, catálogo y stock por sucursal, entregas con rutas, finanzas, equipo y contenido. Los datos de cada negocio viven aislados en una sola base Postgres con **Row-Level Security**, roles y permisos según el plan de cada negocio, así que el aislamiento no depende de que cada consulta recuerde filtrar.
+
+El código vive en un **monorepo Turborepo con tres apps Next.js** (panel del negocio, super admin y sitio público) y paquetes compartidos de permisos, planes, entregas, branding y UI.
+
+El módulo de contenido genera:
+
+- **Posts de LinkedIn** a partir del contexto del negocio, su ICP y las reglas de la plataforma.
+- **Carruseles** con estructura fija (gancho → puntos clave → llamado a la acción).
+- **Imágenes con IA** que acompañan cada pieza.
+
+Se puede generar **uno por uno** o **por lotes programados**, y todo pasa por una revisión antes de publicarse.
+
+Esta demo simula el flujo con un negocio ficticio. No llama a ninguna API:
+
+<ContentGeneratorDemo />
+
+## Arquitectura
+
+<ArchitectureDiagram />
+
+1. **Contexto:** perfil del negocio y su ICP, guardados por tenant.
+2. **Reglas:** restricciones de la plataforma y de la marca (tono, temas prohibidos, formato).
+3. **LLM:** redacta el texto y genera la imagen con salidas estructuradas, para que cada formato tenga siempre la misma forma.
+4. **Revisión:** una persona aprueba, edita o pide otra versión; los ajustes vuelven al LLM.
+5. **Programación:** publicación inmediata o por lotes en un calendario.
+
+## Stack
+
+TypeScript estricto, Next.js 16 (App Router y server actions) y React 19 en las tres apps; Supabase y Drizzle ORM sobre Postgres con RLS; Zod para validar datos y salidas de los modelos; Tailwind CSS v4 y shadcn/ui en la interfaz; Turborepo para el monorepo. LLMs para el texto y un modelo de generación de imágenes para las piezas visuales.
+
+## Resultado
+
+El módulo está integrado en la plataforma y permite que cada negocio genere y programe contenido alineado con su contexto sin empezar desde una hoja en blanco. Por confidencialidad no publico métricas ni capturas del producto.

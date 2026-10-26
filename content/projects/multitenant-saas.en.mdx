@@ -1,0 +1,45 @@
+## Problem
+
+Businesses on the platform needed to run everything from one place: sales, orders, subscriptions, customers, deliveries and finance. They also needed a steady presence on LinkedIn, which they almost never have time to do well.
+
+Relevant content requires knowing the business, who it sells to and what it can or can't say. A generic prompt to an LLM isn't enough: the output sounds the same for everyone.
+
+## My role
+
+I work as a **Full Stack AI Engineer** across the whole platform, and I designed and built **the AI content module from scratch**: data model, model orchestration, interface and post scheduling.
+
+## Solution
+
+The platform is **multitenant** with 15+ modules: point of sale, orders, subscriptions, gift cards, CRM, per-branch catalog and stock, deliveries with routing, finance, team and content. Each business's data is isolated in a single Postgres database with **Row-Level Security**, roles and per-business plan entitlements, so isolation doesn't depend on every query remembering to filter.
+
+The code lives in a **Turborepo monorepo with three Next.js apps** (business dashboard, super admin and public site) plus shared packages for permissions, plans, deliveries, branding and UI.
+
+The content module generates:
+
+- **LinkedIn posts** from the business's context, its ICP and platform rules.
+- **Carousels** with a fixed structure (hook → key points → call to action).
+- **AI images** to go with each piece.
+
+Content can be generated **one at a time** or in **scheduled batches**, and everything goes through review before it's published.
+
+This demo simulates the flow with a fictional business. It doesn't call any API:
+
+<ContentGeneratorDemo />
+
+## Architecture
+
+<ArchitectureDiagram />
+
+1. **Context:** the business profile and its ICP, stored per tenant.
+2. **Rules:** platform and brand constraints (tone, banned topics, format).
+3. **LLM:** drafts the text and generates the image using structured outputs, so each format always has the same shape.
+4. **Review:** a person approves, edits or asks for another version; feedback goes back to the LLM.
+5. **Scheduling:** publish now or in batches on a calendar.
+
+## Stack
+
+Strict TypeScript, Next.js 16 (App Router, server actions) and React 19 across the three apps; Supabase and Drizzle ORM on Postgres with RLS; Zod to validate data and model outputs; Tailwind CSS v4 and shadcn/ui for the interface; Turborepo for the monorepo. LLMs for text and an image-generation model for visuals.
+
+## Outcome
+
+The module is integrated into the platform and lets each business generate and schedule content aligned with its context without starting from a blank page. For confidentiality I don't publish product metrics or screenshots.
